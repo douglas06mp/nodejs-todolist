@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const date = require(__dirname + '/date.js');
-
+const { password } = require(__dirname + '/password.js');
 const app = express();
 
 app.set("view engine", "ejs");
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect(`mongodb+srv://douglas06mp:${password}@todolist-1gqnz.mongodb.net/todolistDB`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
